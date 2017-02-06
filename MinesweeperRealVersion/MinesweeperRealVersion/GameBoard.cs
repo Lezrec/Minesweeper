@@ -8,20 +8,82 @@ namespace MinesweeperRealVersion
 {
     public class GameBoard
     {
+        //for all intents and purposes the name of the board should not be the same as another board
+        public string Name { get; set; }
         public readonly int SizeX;
-
         public readonly int SizeY;
+        
+
+        public enum Difficulty
+        {
+            Easy,
+            Medium,
+            Hard
+        }
+
+        //for like EasyBoard, MediumBoard, HardBoard
+        protected Difficulty difficulty;
+        //perhaps something like 3,4,5 bombs per 3x3 block of tiles
 
         public Tile[,] tiles;
         public List<BombTile> bombTiles;
         //it's good to note that x and y are flipped in a 2d array    
 
-        public GameBoard(int sizeX, int sizeY)
+        public GameBoard(int sizeX, int sizeY, Difficulty difficulty)
         {
+            this.difficulty = difficulty;
             bombTiles = new List<BombTile>();
             SizeX = sizeX;
             SizeY = sizeY;
             tiles = new Tile[sizeY, sizeX];
+        }
+
+        private void GenerateBlankTiles()
+        {
+            for(int i = 0; i < SizeY; i++)
+            {
+                for(int j = 0; j < SizeX; j++)
+                {
+                    tiles[j, i] = new EmptyTile(j, i);
+                }
+            }
+        }
+
+        //bomb this shit up!
+        private void PutBombsInRandomTiles()
+        {
+            //hmm...how do i do this, do i like do the determinant method or do i just pick random tiles...
+        }
+
+        private void UpdateTilesToMatchBombs()
+        {
+
+        }
+
+        private void UpdateBoard()
+        {
+            for(int i = 0; i < SizeY; i++)
+            {
+                for(int j = 0; j < SizeX; j++)
+                {
+
+                    //TODO, figure out best way of transforming tiles with adjacent bombs into numbertiles.
+                    if (!(tiles[i,j] is BombTile))
+                    {
+                        int amt = 0;
+                        GetAdjacentBombs(tiles[i, j], out amt);
+                        if (amt != 0)
+                        {
+                            tiles[i, j] = (ClickedTileWithNumber)tiles[i, j];
+                            tiles[i, j].CallThisOnMeOnceEverythingIsFinished(this);
+                        }
+                        else
+                        {
+                            tiles[i, j].CallThisOnMeOnceEverythingIsFinished(this);
+                        }
+                    }
+                }
+            }
         }
 
         public void GenerateTest()
@@ -118,19 +180,29 @@ namespace MinesweeperRealVersion
 
         }
 
-        public bool HasSameLocation(Tile one, Tile two)
+        public static bool HasSameLocation(Tile one, Tile two)
         {
             return one.X == two.X && one.Y == two.Y;
         }
 
-        public bool IsSameType(Tile one, Tile two)
+        public static bool IsSameType(Tile one, Tile two)
         {
             return one.GetType().Equals(two.GetType());
         }
 
-        public bool IsBasicallyTheSameTile(Tile one, Tile two)
+        public static bool HasSameGameBoard(Tile one, Tile two)
         {
-            return HasSameLocation(one, two) && IsSameType(one, two);
+            return one.Board.Equals(two.Board);
+        }
+
+        public static bool IsBasicallyTheSameTile(Tile one, Tile two)
+        {
+            return HasSameLocation(one, two) && IsSameType(one, two) && HasSameGameBoard(one, two);
+        }
+
+        public bool Equals(GameBoard other)
+        {
+            return Name == other.Name;
         }
     }
 }

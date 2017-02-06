@@ -7,3 +7,12 @@ C:\Users\user\Documents\CSharpPractice\MinesweeperRealVersion\MinesweeperRealVer
 C:\Users\user\Documents\CSharpPractice\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.csproj.GenerateResource.Cache
 C:\Users\user\Documents\CSharpPractice\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.exe
 C:\Users\user\Documents\CSharpPractice\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.pdb
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\bin\Debug\MinesweeperRealVersion.exe.config
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.exe
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.pdb
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.Form1.resources
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\obj\Debug\MinesweeperRealVersion.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\bin\Debug\MinesweeperRealVersion.exe
+C:\Users\user\Documents\GitHub\Minesweeper\MinesweeperRealVersion\MinesweeperRealVersion\bin\Debug\MinesweeperRealVersion.pdb

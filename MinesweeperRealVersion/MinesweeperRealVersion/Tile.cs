@@ -11,7 +11,8 @@ namespace MinesweeperRealVersion
     public class Tile
     {
         protected GameBoard board;
-
+        protected bool unclicked;
+        protected bool flagged;
         protected int positionX;
         protected int positionY;
 
@@ -20,6 +21,11 @@ namespace MinesweeperRealVersion
             }
         public int Y {
             get { return positionY; }
+        }
+
+        public GameBoard Board
+        {
+            get { return Board; }
         }
 
         public Tile(int x, int y)
@@ -50,15 +56,15 @@ namespace MinesweeperRealVersion
         }
     }
 
-    public class UnclickedTile : Tile
-    {
-        public bool Flagged { get; set; }
+    //public class UnclickedTile : Tile
+    //{
+    //    public bool Flagged { get; set; }
 
-        public UnclickedTile(int x, int y) : base(x,y)
-        {
+    //    public UnclickedTile(int x, int y) : base(x,y)
+    //    {
 
-        }
-    }
+    //    }
+    //}
 
     public class ClickedTileWithNumber : Tile
     {
@@ -86,5 +92,12 @@ namespace MinesweeperRealVersion
         }
 
 
+        public bool Equals(Tile other)
+        {
+            return GameBoard.IsBasicallyTheSameTile(this, other);
+        }
+
+
     }
+    
 }

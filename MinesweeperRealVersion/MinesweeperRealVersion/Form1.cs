@@ -17,7 +17,7 @@ namespace MinesweeperRealVersion
         public Form1()
         {
             InitializeComponent();
-            board = new GameBoard(10, 10);
+            board = new GameBoard(10, 10, GameBoard.Difficulty.Easy);
             board.GenerateTest();
             Console.WriteLine(board.ToString());
 
