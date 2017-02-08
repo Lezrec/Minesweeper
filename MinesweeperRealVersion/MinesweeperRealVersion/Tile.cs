@@ -8,11 +8,11 @@ using System.Drawing;
 
 namespace MinesweeperRealVersion
 {
-    public class Tile
+    public abstract class Tile
     {
         protected GameBoard board;
-        protected bool unclicked;
-        protected bool flagged;
+        public bool Unclicked { get; set; }
+        public bool Flagged { get; set; }
         protected int positionX;
         protected int positionY;
 
