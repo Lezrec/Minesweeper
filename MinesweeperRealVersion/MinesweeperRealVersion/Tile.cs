@@ -38,11 +38,21 @@ namespace MinesweeperRealVersion
         {
             board = gameboard;
         }
+
+        public virtual void Reveal()
+        {
+            Unclicked = false;
+        }
     }
 
     public class EmptyTile : Tile
     {
         public EmptyTile(int x, int y) : base(x,y)
+        {
+            
+        }
+
+        public override void Reveal()
         {
             
         }
@@ -54,9 +64,14 @@ namespace MinesweeperRealVersion
         {
             
         }
+
+        public override void Reveal()
+        {
+
+        }
     }
 
-    //public class UnclickedTile : Tile
+    //public class UnclickedTile : Tile |I can just have a bool in the base class, and for that reason, I'm out.|
     //{
     //    public bool Flagged { get; set; }
 
