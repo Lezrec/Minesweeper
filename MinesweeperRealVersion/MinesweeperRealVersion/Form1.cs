@@ -10,16 +10,22 @@ using System.Windows.Forms;
 
 namespace MinesweeperRealVersion
 {
-    public partial class Form1 : Form
+    public partial class Minesweeper : Form
     {
         private GameBoard board;
+        public static Minesweeper currentBoard;
 
-        public Form1()
+        public Minesweeper()
         {
             InitializeComponent();
             board = new GameBoard(10, 10, GameBoard.Difficulty.Easy);
             board.GenerateTest();
             Console.WriteLine(board.ToString());
+            currentBoard = this;
+            PictureBoxWithTile bas = new PictureBoxWithTile();
+            Bitmap bmp = bas.UnclickedImage;
+            PictureBoxWithTile pbwt = new PictureBoxWithTile(new Point(0, 0), bmp, "C:/Users/user/Pictures/Minesweeper/empty.png");
+            PictureBoxWithTile.Test(pbwt);
 
         }
 

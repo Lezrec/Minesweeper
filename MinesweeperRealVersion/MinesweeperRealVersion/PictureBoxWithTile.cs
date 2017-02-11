@@ -6,19 +6,27 @@ namespace MinesweeperRealVersion
 {
     public class PictureBoxWithTile : PictureBox 
     {
+
+        //TODO MAKE ALL THESE PROPERTIES
         //if you've cloned this repo, get your own images you filthy cheater
-        public Bitmap flagImage = new Bitmap("flagged.bmp");
-        public Bitmap emptyImage = new Bitmap("empty.bmp");
-        public Bitmap unclickedImage = new Bitmap("unclicked.bmp");
-        public Bitmap bombImage = new Bitmap("bomb.bmp");
-        public Bitmap oneImage = new Bitmap("1.bmp");
-        public Bitmap twoImage = new Bitmap("2.bmp");
-        public Bitmap threeImage = new Bitmap("3.bmp");
-        public Bitmap fourImage = new Bitmap("4.bmp");
-        public Bitmap fiveImage = new Bitmap("5.bmp");
-        public Bitmap sixImage = new Bitmap("6.bmp");
-        public Bitmap sevenImage = new Bitmap("7.bmp");
-        public Bitmap eightImage = new Bitmap("8.bmp");
+        public  Bitmap flagImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/flagged.png");
+        public  Bitmap emptyImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/empty.png"); //<- WE NEED THIS
+        public  Bitmap bombImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/bomb.png");
+        public  Bitmap oneImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/1.png");
+        public  Bitmap twoImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/2.png");
+        public  Bitmap threeImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/3.png");
+        public  Bitmap fourImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/4.png");
+        public  Bitmap fiveImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/5.png");
+        public  Bitmap sixImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/6.png");
+        public  Bitmap sevenImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/7.png");
+        public  Bitmap eightImage = new Bitmap("C:/Users/user/Pictures/Minesweeper/8.png");
+
+
+        //YO WE FINNA NEED TO MAKE SURE THIS ISNT EMPTY BUT UNCLICKED OK?
+        public Bitmap UnclickedImage
+        {
+            get { return new Bitmap("C:/Users/user/Pictures/Minesweeper/empty.png"); }
+        }
 
 
         private Tile myAttachedTile;
@@ -28,7 +36,28 @@ namespace MinesweeperRealVersion
             Size = new System.Drawing.Size(32, 32);
             AssignPicture();
             Enabled = true;
-            MouseClick += ParseClick; 
+            MouseClick += ParseClick;
+            
+        }
+
+        //testing constructor
+        internal PictureBoxWithTile(Point leftPos ,Bitmap bmp, string dir) : base()
+        {
+            this.Location = leftPos;
+            ImageLocation = dir;
+            Size = new System.Drawing.Size(32, 32);
+            Enabled = true;
+        }
+
+        //testing constructor for generation
+        internal PictureBoxWithTile() : base()
+        {
+
+        }
+
+        public static void Test(PictureBoxWithTile pb)
+        {
+            Minesweeper.currentBoard.Controls.Add(pb);
         }
 
         private void ParseClick(object sender, MouseEventArgs e)
@@ -49,7 +78,7 @@ namespace MinesweeperRealVersion
                         if (myAttachedTile.Flagged)
                         {
                             //unflag tile
-                            Image = unclickedImage;
+                            Image = UnclickedImage;
                             myAttachedTile.Flagged = false;
                         }
                         else
@@ -81,7 +110,7 @@ namespace MinesweeperRealVersion
                 else
                 {
                     //unclicked
-                    Image = unclickedImage;
+                    Image = UnclickedImage;
                 }
             }
             else
